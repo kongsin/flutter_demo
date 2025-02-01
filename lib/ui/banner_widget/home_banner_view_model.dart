@@ -9,7 +9,7 @@ class HomeBannerViewModel extends StateNotifier<AsyncValue<List<BannerModel>>> {
     fetchBanners();
   }
 
-  void fetchBanners() async {
+  void fetchBanners() {
     Future<List<BannerModel>> response = bannerUserCase.execute();
     response.then(
       (banner) {

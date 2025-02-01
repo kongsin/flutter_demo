@@ -1,19 +1,44 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/data/models/category_model.dart';
+import 'package:todolist/di/viewmodel_provider.dart';
 
-class HomeCategories extends StatelessWidget {
+class HomeCategories extends ConsumerWidget {
+  final int count = 6;
   const HomeCategories({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    var count = 6;
+  Widget build(BuildContext context, WidgetRef ref) {
+    var categoryViewModel = ref.watch(categoryViewModelProvider);
+    return categoryViewModel.when(
+      data: (data) {
+        return buildWidgetContent(context, data);
+      },
+      error: (error, stack) {
+        return SizedBox(
+          width: 0,
+          height: 0,
+        );
+      },
+      loading: () {
+        return SizedBox(
+          width: 0,
+          height: 0,
+        );
+      },
+    );
+  }
 
+  Widget buildWidgetContent(BuildContext context, List<CategoryModel> items) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(10, 8, 10, 0),
       child: GridView.builder(
         shrinkWrap: true,
-        itemCount: 12,
+        itemCount: items.length,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: count, // 2 columns
@@ -28,15 +53,18 @@ class HomeCategories extends StatelessWidget {
                   aspectRatio: 1,
                   child: Card(
                     elevation: 0,
-                    shape: CircleBorder(side: BorderSide(), eccentricity: 0),
+                    shape: CircleBorder(
+                      side: BorderSide(),
+                      eccentricity: 0,
+                    ),
                     clipBehavior: Clip.antiAlias,
                     child: Image.network(
-                      "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
+                      items[index].image,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                Text("Menu $index", overflow: TextOverflow.ellipsis),
+                Text(items[index].name, overflow: TextOverflow.ellipsis),
               ],
             ),
           );
@@ -44,4 +72,5 @@ class HomeCategories extends StatelessWidget {
       ),
     );
   }
+
 }

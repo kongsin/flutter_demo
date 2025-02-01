@@ -12,8 +12,10 @@ class BannerAPIService extends BaseAPIService {
      final response = await http.get(Uri.parse("https://www.datacenter.com/banners"), headers: getDefaultHeader());
      try {
        responseValidation(response);
-       return Future.value(jsonDecode(response.body));
-     } catch (e) {
+       List<dynamic> jsonModel = json.decode(response.body);
+       List<BannerModel> responseItems = jsonModel.map((data) => BannerModel.fromJson(data)).toList();
+       return responseItems;
+      } catch (e) {
        return Future.error(e);
      }
   }

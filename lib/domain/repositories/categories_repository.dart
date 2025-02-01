@@ -1,0 +1,6 @@
+
+import 'package:todolist/data/models/category_model.dart';
+
+abstract class CategoriesRepository {
+  Future<List<CategoryModel>> fetchCategories();
+}
