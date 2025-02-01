@@ -8,102 +8,102 @@ class RecommendRepositoriesMockupImpl extends RecommendRepository {
   var jsonString = '''
   [
   {
-    "image": "https://example.com/images/pizza_hut.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Pizza Hut",
     "scheme": "https://example.com/merchants/pizza_hut"
   },
   {
-    "image": "https://example.com/images/mcdonalds.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "McDonald's",
     "scheme": "https://example.com/merchants/mcdonalds"
   },
   {
-    "image": "https://example.com/images/kfc.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "KFC",
     "scheme": "https://example.com/merchants/kfc"
   },
   {
-    "image": "https://example.com/images/burger_king.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Burger King",
     "scheme": "https://example.com/merchants/burger_king"
   },
   {
-    "image": "https://example.com/images/subway.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Subway",
     "scheme": "https://example.com/merchants/subway"
   },
   {
-    "image": "https://example.com/images/dominos.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Domino's Pizza",
     "scheme": "https://example.com/merchants/dominos"
   },
   {
-    "image": "https://example.com/images/taco_bell.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Taco Bell",
     "scheme": "https://example.com/merchants/taco_bell"
   },
   {
-    "image": "https://example.com/images/starbucks.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Starbucks",
     "scheme": "https://example.com/merchants/starbucks"
   },
   {
-    "image": "https://example.com/images/dunkin.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Dunkin' Donuts",
     "scheme": "https://example.com/merchants/dunkin"
   },
   {
-    "image": "https://example.com/images/chipotle.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Chipotle",
     "scheme": "https://example.com/merchants/chipotle"
   },
   {
-    "image": "https://example.com/images/wendys.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Wendy's",
     "scheme": "https://example.com/merchants/wendys"
   },
   {
-    "image": "https://example.com/images/panda_express.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Panda Express",
     "scheme": "https://example.com/merchants/panda_express"
   },
   {
-    "image": "https://example.com/images/chickfila.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Chick-fil-A",
     "scheme": "https://example.com/merchants/chickfila"
   },
   {
-    "image": "https://example.com/images/five_guys.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Five Guys",
     "scheme": "https://example.com/merchants/five_guys"
   },
   {
-    "image": "https://example.com/images/shake_shack.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Shake Shack",
     "scheme": "https://example.com/merchants/shake_shack"
   },
   {
-    "image": "https://example.com/images/popeyes.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Popeyes",
     "scheme": "https://example.com/merchants/popeyes"
   },
   {
-    "image": "https://example.com/images/arbys.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Arby's",
     "scheme": "https://example.com/merchants/arbys"
   },
   {
-    "image": "https://example.com/images/jollibee.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Jollibee",
     "scheme": "https://example.com/merchants/jollibee"
   },
   {
-    "image": "https://example.com/images/krispy_kreme.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Krispy Kreme",
     "scheme": "https://example.com/merchants/krispy_kreme"
   },
   {
-    "image": "https://example.com/images/baskin_robbins.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
     "title": "Baskin-Robbins",
     "scheme": "https://example.com/merchants/baskin_robbins"
   }
