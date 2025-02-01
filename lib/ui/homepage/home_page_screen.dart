@@ -55,7 +55,7 @@ class HomepageScreen extends StatelessWidget {
 
   void _hideLoadMore(context) async {
     await Future.delayed(Duration(seconds: 1));
-    globalKey.currentState?.addItems();
+    globalKey.currentState?.loadMore();
     Navigator.pop(context);
   }
 

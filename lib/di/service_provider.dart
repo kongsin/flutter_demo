@@ -1,9 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/data/mockup/banner_repository_mockup_impl.dart';
 import 'package:todolist/data/mockup/categories_repository_mockup_impl.dart';
+import 'package:todolist/data/mockup/merchandise_repository_mockup_impl.dart';
 import 'package:todolist/data/mockup/recommend_repository_mockup_impl.dart';
 import 'package:todolist/data/services/banner_api_service.dart';
 import 'package:todolist/data/services/category_api_service.dart';
+import 'package:todolist/data/services/merchandise_api_service.dart';
 import 'package:todolist/data/services/recommend_api_service.dart';
 
 final bannerAPIProvider = Provider((ref) => BannerAPIService());
@@ -14,3 +16,6 @@ final categoryRepository = Provider((ref) => CategoriesRepositoriesMockupImpl())
 
 final recommendAPIProvider = Provider((ref) => RecommendAPIService());
 final recommendRepository = Provider((ref) => RecommendRepositoriesMockupImpl());
+
+final merchandiseAPIProvider = Provider((ref) => MerchandiseApiService());
+final merchandiseRepository = Provider((ref) => MerchandiseRepositoryMockupImpl());

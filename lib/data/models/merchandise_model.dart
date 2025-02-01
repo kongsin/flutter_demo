@@ -7,7 +7,8 @@ part 'merchandise_model.g.dart';
 class MerchantModel {
   final String name;
   final String image;
-  MerchantModel({required this.name, required this.image});
+  final String scheme;
+  MerchantModel({required this.name, required this.image, required this.scheme});
 
   factory MerchantModel.fromJson(Map<String, dynamic> json) => _$MerchantModelFromJson(json);
 

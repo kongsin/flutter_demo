@@ -1,23 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/data/models/merchandise_model.dart';
+import 'package:todolist/di/viewmodel_provider.dart';
 
-class MerchandiseItemScreen extends StatefulWidget {
+class MerchandiseItemScreen extends ConsumerStatefulWidget {
   const MerchandiseItemScreen({required Key key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => MerchandiseItems();
+  ConsumerState<ConsumerStatefulWidget> createState() => MerchandiseItems();
+
 }
 
-class MerchandiseItems extends State<MerchandiseItemScreen> {
-
-  var itemCount = 20;
+class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
+  var itemCount = 0;
   final int col = 2;
-  final String path = "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D";
+
+  final List<MerchantModel> _items = [];
 
   @override
   Widget build(BuildContext context) {
+    var merchandiseViewModel = ref.watch(merchandiseWidgetViewModelProvider);
+    merchandiseViewModel.when(data: (merchandise) {
+      addItems(merchandise);
+    }, error: (e, stackTrace){
+      return SizedBox();
+    }, loading: (){
+      return SizedBox();
+    });
+    return buildWidgetContent(context, []);
+  }
 
+  Widget buildWidgetContent(BuildContext context, List<MerchantModel> merchandise) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(10, 8, 10, 0),
       child: GridView.builder(
@@ -27,25 +42,22 @@ class MerchandiseItems extends State<MerchandiseItemScreen> {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: col, // 2 columns
           crossAxisSpacing: 10,
-          childAspectRatio: 0.88,
+          childAspectRatio: 0.89,
         ),
         itemBuilder: (context, index) {
           return Card(
             shape: RoundedRectangleBorder(
               side: BorderSide(),
-              borderRadius: BorderRadius.circular(10)
+              borderRadius: BorderRadius.circular(10),
             ),
             clipBehavior: Clip.antiAlias,
             child: Column(
               children: [
                 AspectRatio(
                   aspectRatio: 1,
-                  child: Image.network(
-                    path,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.network(_items[index].image, fit: BoxFit.cover),
                 ),
-                Text("Menu $index", overflow: TextOverflow.ellipsis),
+                Text(_items[index].name, overflow: TextOverflow.ellipsis),
               ],
             ),
           );
@@ -54,10 +66,15 @@ class MerchandiseItems extends State<MerchandiseItemScreen> {
     );
   }
 
-  void addItems() {
+  void addItems(List<MerchantModel> merchandise) {
     setState(() {
-      itemCount = itemCount + 20;
+      _items.addAll(merchandise);
+      itemCount = _items.length;
     });
   }
 
+  void loadMore() {
+    var merchandiseViewModel = ref.read(merchandiseWidgetViewModelProvider.notifier);
+    merchandiseViewModel.loadMoreMerchandise();
+  }
 }
