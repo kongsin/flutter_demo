@@ -13,7 +13,7 @@ class HomeBannerViewModel extends StateNotifier<AsyncValue<List<BannerModel>>> {
     Future<List<BannerModel>> response = bannerUserCase.execute();
     response.then(
       (banner) {
-        state = AsyncValue.data(banner);
+        state = AsyncData(banner);
       },
       onError: (error) {
         state = AsyncError(error, StackTrace.empty);

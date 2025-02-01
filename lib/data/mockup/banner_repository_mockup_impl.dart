@@ -49,8 +49,8 @@ class BannerRepositoryMockupImpl extends BannerRepository {
 
   @override
   Future<List<BannerModel>> fetchBanners() async {
-    List<dynamic> mockData = json.decode(mockJson);
+    List<dynamic> mockData = await json.decode(mockJson);
     List<BannerModel> result =  mockData.map((data) => BannerModel.fromJson(data)).toList();
-    return result;
+    return Future.value(result);
   }
 }

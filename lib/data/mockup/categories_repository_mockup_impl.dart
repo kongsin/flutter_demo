@@ -76,7 +76,7 @@ class CategoriesRepositoriesMockupImpl extends CategoriesRepository {
 
   @override
   Future<List<CategoryModel>> fetchCategories() async {
-    List<dynamic> jsonData = json.decode(jsonString);
+    List<dynamic> jsonData = await json.decode(jsonString);
     List<CategoryModel> jsonObject = jsonData.map((data) => CategoryModel.fromJson(data)).toList();
     return Future.value(jsonObject);
   }

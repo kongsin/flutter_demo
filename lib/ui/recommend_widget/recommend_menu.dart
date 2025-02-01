@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/data/models/recommend_model.dart';
 
-class RecommendMenu extends StatelessWidget {
+import '../../di/viewmodel_provider.dart';
+
+class RecommendMenu extends ConsumerWidget {
   const RecommendMenu({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var recommendViewModel = ref.watch(recommendWidgetViewModelProvider);
+    return recommendViewModel.when(
+      data: (recommends) {
+        return buildWidgetContent(context, recommends);
+      },
+      error: (error, stack) {
+        return SizedBox();
+      },
+      loading: () {
+        return SizedBox();
+      },
+    );
+  }
+
+  Widget buildWidgetContent(BuildContext context, List<RecommendModel> items) {
     return Padding(
-        padding: EdgeInsets.fromLTRB(6, 0, 6, 0),
+      padding: EdgeInsets.fromLTRB(6, 0, 6, 0),
       child: SizedBox(
-        height: 155,
+        height: 150,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 20,
+          itemCount: items.length,
           itemBuilder: (context, index) {
             return Card(
               margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
@@ -23,12 +42,12 @@ class RecommendMenu extends StatelessWidget {
               child: Column(
                 children: [
                   Image.network(
-                    "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
+                    items[index].image,
                     width: 120,
                     height: 120,
                     fit: BoxFit.cover,
                   ),
-                  Text("Menu $index", overflow: TextOverflow.ellipsis),
+                  Text(items[index].title, overflow: TextOverflow.ellipsis),
                 ],
               ),
             );
@@ -37,4 +56,5 @@ class RecommendMenu extends StatelessWidget {
       ),
     );
   }
+
 }
