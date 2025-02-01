@@ -27,7 +27,7 @@ class RecommendMenu extends ConsumerWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(6, 0, 6, 0),
       child: SizedBox(
-        height: 150,
+        height: 145,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: items.length,
