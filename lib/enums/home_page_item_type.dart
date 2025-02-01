@@ -1,0 +1,3 @@
+enum HomePageItemType {
+  BANNER, CATEGORY, RECOMMEND, ITEM
+}
