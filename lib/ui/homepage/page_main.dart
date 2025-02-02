@@ -13,11 +13,9 @@ class PageMain extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PageMainState();
-
 }
 
 class _PageMainState extends ConsumerState<PageMain> {
-
   final List<HomePageItemType> _datas = [
     HomePageItemType.BANNER,
     HomePageItemType.CATEGORY,
@@ -49,7 +47,7 @@ class _PageMainState extends ConsumerState<PageMain> {
           case HomePageItemType.RECOMMEND:
             return RecommendMenu();
           case HomePageItemType.ITEM:
-            return MerchandiseItemScreen(key: globalKey, columnCount: 2,);
+            return MerchandiseItemScreen(key: globalKey, columnCount: 2);
         }
       },
     );
@@ -84,5 +82,4 @@ class _PageMainState extends ConsumerState<PageMain> {
       ),
     );
   }
-
 }

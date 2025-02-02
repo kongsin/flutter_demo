@@ -44,22 +44,21 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
     List<MerchantModel> merchandise,
   ) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 8, 10, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
       child: GridView.builder(
+        padding: EdgeInsets.zero,
         shrinkWrap: true,
         itemCount: _itemCount,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: columnCount, // 2 columns
           crossAxisSpacing: 10,
-          childAspectRatio: 0.85,
+          childAspectRatio: 0.85
         ),
         itemBuilder: (context, index) {
-          return SizedBox.expand(
-            child: MerchantCellWidget(
-              image: _items[index].image,
-              name: _items[index].name,
-            ),
+          return MerchantCellWidget(
+            image: _items[index].image,
+            name: _items[index].name,
           );
         },
       ),

@@ -97,12 +97,13 @@ class _PageProfileState extends ConsumerState<PageProfile> {
           ),
           SliverList.list(children: [
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.fromLTRB(16, 16, 0, 0),
               child: Text(
                   "My Content",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16
+                  fontSize: 16,
+                  height: 0
                 ),
               ),
             ),
