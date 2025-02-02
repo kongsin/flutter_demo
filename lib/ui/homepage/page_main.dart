@@ -49,7 +49,7 @@ class _PageMainState extends ConsumerState<PageMain> {
           case HomePageItemType.RECOMMEND:
             return RecommendMenu();
           case HomePageItemType.ITEM:
-            return MerchandiseItemScreen(key: globalKey);
+            return MerchandiseItemScreen(key: globalKey, columnCount: 2,);
         }
       },
     );

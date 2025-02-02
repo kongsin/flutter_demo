@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/data/models/recommend_model.dart';
 
 import '../../di/viewmodel_provider.dart';
+import '../merchandise_widget/merchat_cail.dart';
 
 class RecommendMenu extends ConsumerWidget {
   const RecommendMenu({super.key});
@@ -32,27 +33,11 @@ class RecommendMenu extends ConsumerWidget {
           scrollDirection: Axis.horizontal,
           itemCount: items.length,
           itemBuilder: (context, index) {
-            return Card(
-              margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
-              shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  color: Colors.white,
-                  width: 0,
-                  style: BorderStyle.none,
-                ),
-                borderRadius: BorderRadiusDirectional.circular(10),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  Image.network(
-                    items[index].image,
-                    width: 120,
-                    height: 120,
-                    fit: BoxFit.cover,
-                  ),
-                  Text(items[index].title, overflow: TextOverflow.ellipsis),
-                ],
+            return SizedBox(
+              width: 120,
+              child: MerchantCellWidget(
+                image: items[index].image,
+                name: items[index].title,
               ),
             );
           },

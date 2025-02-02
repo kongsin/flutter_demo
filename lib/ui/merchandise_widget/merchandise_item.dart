@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/data/models/merchandise_model.dart';
 import 'package:todolist/di/viewmodel_provider.dart';
+import 'package:todolist/ui/merchandise_widget/merchat_cail.dart';
 
 class MerchandiseItemScreen extends ConsumerStatefulWidget {
-  const MerchandiseItemScreen({required Key key}) : super(key: key);
+  final int columnCount;
+  const MerchandiseItemScreen({key, required this.columnCount})
+    : super(key: key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => MerchandiseItems();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      MerchandiseItems(columnCount: columnCount);
 }
 
 class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
+  final int columnCount;
+  MerchandiseItems({required this.columnCount}) : super();
+
   var _itemCount = 0;
-  final int _col = 2;
 
   final List<MerchantModel> _items = [];
 
@@ -44,29 +50,15 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
         itemCount: _itemCount,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: _col, // 2 columns
+          crossAxisCount: columnCount, // 2 columns
           crossAxisSpacing: 10,
-          childAspectRatio: 0.89,
+          childAspectRatio: 0.85,
         ),
         itemBuilder: (context, index) {
-          return Card(
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                color: Colors.white,
-                width: 0,
-                style: BorderStyle.none,
-              ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: [
-                AspectRatio(
-                  aspectRatio: 1,
-                  child: Image.network(_items[index].image, fit: BoxFit.cover),
-                ),
-                Text(_items[index].name, overflow: TextOverflow.ellipsis),
-              ],
+          return SizedBox.expand(
+            child: MerchantCellWidget(
+              image: _items[index].image,
+              name: _items[index].name,
             ),
           );
         },
