@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/data/models/merchandise_model.dart';
 import 'package:todolist/di/viewmodel_provider.dart';
@@ -10,7 +8,6 @@ class MerchandiseItemScreen extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => MerchandiseItems();
-
 }
 
 class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
@@ -22,17 +19,24 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
   @override
   Widget build(BuildContext context) {
     var merchandiseViewModel = ref.watch(merchandiseWidgetViewModelProvider);
-    merchandiseViewModel.when(data: (merchandise) {
-      addItems(merchandise);
-    }, error: (e, stackTrace){
-      return SizedBox();
-    }, loading: (){
-      return SizedBox();
-    });
+    merchandiseViewModel.when(
+      data: (merchandise) {
+        addItems(merchandise);
+      },
+      error: (e, stackTrace) {
+        return SizedBox();
+      },
+      loading: () {
+        return SizedBox();
+      },
+    );
     return buildWidgetContent(context, []);
   }
 
-  Widget buildWidgetContent(BuildContext context, List<MerchantModel> merchandise) {
+  Widget buildWidgetContent(
+    BuildContext context,
+    List<MerchantModel> merchandise,
+  ) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(10, 8, 10, 0),
       child: GridView.builder(
@@ -74,7 +78,9 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
   }
 
   void loadMore() {
-    var merchandiseViewModel = ref.read(merchandiseWidgetViewModelProvider.notifier);
+    var merchandiseViewModel = ref.read(
+      merchandiseWidgetViewModelProvider.notifier,
+    );
     merchandiseViewModel.loadMoreMerchandise();
   }
 }

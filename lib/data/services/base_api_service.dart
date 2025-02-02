@@ -1,10 +1,7 @@
-import 'dart:collection';
-
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class BaseAPIService {
-
   Map<String, String> getDefaultHeader() {
     var header = <String, String>{};
     header["authorization"] = "";
@@ -33,5 +30,4 @@ class BaseAPIService {
         throw Exception("Unknown Error: ${response.statusCode}");
     }
   }
-
 }

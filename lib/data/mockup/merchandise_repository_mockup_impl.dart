@@ -1,12 +1,8 @@
-
 import 'dart:convert';
 import 'package:todolist/data/models/merchandise_model.dart';
 import 'package:todolist/domain/repositories/merchandise_repository.dart';
-import 'package:todolist/domain/repositories/recommend_repository.dart';
-import '../models/recommend_model.dart';
 
 class MerchandiseRepositoryMockupImpl extends MerchandiseRepository {
-
   var jsonString = '''
   [
   {
@@ -115,8 +111,8 @@ class MerchandiseRepositoryMockupImpl extends MerchandiseRepository {
   @override
   Future<List<MerchantModel>> fetchMerchandise() async {
     List<dynamic> jsonData = await json.decode(jsonString);
-    List<MerchantModel> jsonObject = jsonData.map((data) => MerchantModel.fromJson(data)).toList();
+    List<MerchantModel> jsonObject =
+        jsonData.map((data) => MerchantModel.fromJson(data)).toList();
     return Future.value(jsonObject);
   }
-
 }

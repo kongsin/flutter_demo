@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:todolist/ui/banner_widget//home_banner.dart';
 import 'package:todolist/ui/categories_widget/home_categories.dart';
@@ -7,16 +6,17 @@ import 'package:todolist/ui/recommend_widget/recommend_menu.dart';
 import '../../enums/home_page_item_type.dart';
 
 class HomepageScreen extends StatelessWidget {
-
   List<HomePageItemType> datas = [
     HomePageItemType.BANNER,
     HomePageItemType.CATEGORY,
     HomePageItemType.RECOMMEND,
-    HomePageItemType.ITEM
+    HomePageItemType.ITEM,
   ];
 
   final GlobalKey<MerchandiseItems> globalKey = GlobalKey();
   final ScrollController _scrollController = ScrollController();
+
+  HomepageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +33,15 @@ class HomepageScreen extends StatelessWidget {
         itemCount: datas.length,
         controller: _scrollController,
         itemBuilder: (context, index) {
-          switch(datas[index]) {
-            case HomePageItemType.BANNER: return HomeBanner();
-            case HomePageItemType.CATEGORY: return HomeCategories();
-            case HomePageItemType.RECOMMEND: return RecommendMenu();
-            case HomePageItemType.ITEM: return MerchandiseItemScreen(key: globalKey);
+          switch (datas[index]) {
+            case HomePageItemType.BANNER:
+              return HomeBanner();
+            case HomePageItemType.CATEGORY:
+              return HomeCategories();
+            case HomePageItemType.RECOMMEND:
+              return RecommendMenu();
+            case HomePageItemType.ITEM:
+              return MerchandiseItemScreen(key: globalKey);
           }
         },
       ),

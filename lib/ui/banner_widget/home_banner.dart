@@ -106,13 +106,10 @@ class _HomeBannerState extends ConsumerState<HomeBanner> {
   }
 
   Widget buildErrorContent(context) {
-    return           Visibility(
+    return Visibility(
       visible: isErrorVisible,
       child: Center(
-        child: Text(
-          "Error: ${errorMsg}",
-          style: TextStyle(color: Colors.red),
-        ),
+        child: Text("Error: $errorMsg", style: TextStyle(color: Colors.red)),
       ),
     );
   }
@@ -129,5 +126,4 @@ class _HomeBannerState extends ConsumerState<HomeBanner> {
       ),
     );
   }
-
 }
