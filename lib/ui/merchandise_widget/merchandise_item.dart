@@ -51,7 +51,11 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
         itemBuilder: (context, index) {
           return Card(
             shape: RoundedRectangleBorder(
-              side: BorderSide(),
+              side: BorderSide(
+                color: Colors.white,
+                width: 0,
+                style: BorderStyle.none,
+              ),
               borderRadius: BorderRadius.circular(10),
             ),
             clipBehavior: Clip.antiAlias,

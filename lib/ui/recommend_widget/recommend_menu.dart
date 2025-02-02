@@ -35,7 +35,11 @@ class RecommendMenu extends ConsumerWidget {
             return Card(
               margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
               shape: RoundedRectangleBorder(
-                side: BorderSide(),
+                side: BorderSide(
+                  color: Colors.white,
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
                 borderRadius: BorderRadiusDirectional.circular(10),
               ),
               clipBehavior: Clip.antiAlias,

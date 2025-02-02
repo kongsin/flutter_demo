@@ -74,7 +74,11 @@ class _HomeBannerState extends ConsumerState<HomeBanner> {
                 width: MediaQuery.of(context).size.width,
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(),
+                    side: BorderSide(
+                      color: Colors.white,
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
                     borderRadius: BorderRadiusDirectional.circular(10),
                   ),
                   clipBehavior: Clip.antiAlias,

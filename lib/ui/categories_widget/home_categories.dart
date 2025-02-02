@@ -43,7 +43,14 @@ class HomeCategories extends ConsumerWidget {
                   aspectRatio: 1,
                   child: Card(
                     elevation: 0,
-                    shape: CircleBorder(side: BorderSide(), eccentricity: 0),
+                    shape: CircleBorder(
+                        side: BorderSide(
+                          color: Colors.white,
+                          width: 0,
+                          style: BorderStyle.none,
+                        ),
+                        eccentricity: 0
+                    ),
                     clipBehavior: Clip.antiAlias,
                     child: Image.network(items[index].image, fit: BoxFit.cover),
                   ),
