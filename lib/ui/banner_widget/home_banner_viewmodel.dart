@@ -3,14 +3,14 @@ import 'package:todolist/data/models/banner_model.dart';
 import 'package:todolist/domain/usecases/get_banner_use_case.dart';
 
 class HomeBannerViewModel extends StateNotifier<AsyncValue<List<BannerModel>>> {
-  GetBannerUseCase bannerUserCase;
+  GetBannerUseCase _bannerUserCase;
 
-  HomeBannerViewModel(this.bannerUserCase) : super(AsyncLoading()) {
+  HomeBannerViewModel(this._bannerUserCase) : super(AsyncLoading()) {
     fetchBanners();
   }
 
   void fetchBanners() {
-    Future<List<BannerModel>> response = bannerUserCase.execute();
+    Future<List<BannerModel>> response = _bannerUserCase.execute();
     response.then(
       (banner) {
         state = AsyncData(banner);

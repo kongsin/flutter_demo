@@ -4,13 +4,13 @@ import 'package:todolist/domain/repositories/banner_repository.dart';
 
 class BannerRepositoryImpl extends BannerRepository {
 
-  final BannerAPIService service;
+  final BannerAPIService _service;
 
-  BannerRepositoryImpl(this.service);
+  BannerRepositoryImpl(this._service);
 
   @override
   Future<List<BannerModel>> fetchBanners() async {
-    return await service.fetchBanners();
+    return await _service.fetchBanners();
   }
 
 }

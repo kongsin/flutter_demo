@@ -4,14 +4,14 @@ import 'package:todolist/domain/usecases/get_merchandise_use_case.dart';
 
 class MerchandiseWidgetViewModel
     extends StateNotifier<AsyncValue<List<MerchantModel>>> {
-  GetMerchandiseUseCase merchandiseUseCase;
+  GetMerchandiseUseCase _merchandiseUseCase;
 
-  MerchandiseWidgetViewModel(this.merchandiseUseCase) : super(AsyncLoading()) {
+  MerchandiseWidgetViewModel(this._merchandiseUseCase) : super(AsyncLoading()) {
     fetchMerchandise();
   }
 
   void fetchMerchandise() {
-    var response = merchandiseUseCase.execute();
+    var response = _merchandiseUseCase.execute();
     response.then(
       (merchandises) {
         state = AsyncData(merchandises);
@@ -23,7 +23,7 @@ class MerchandiseWidgetViewModel
   }
 
   void loadMoreMerchandise() {
-    var response = merchandiseUseCase.execute();
+    var response = _merchandiseUseCase.execute();
     response.then(
           (merchandises) {
         state = AsyncData(merchandises);

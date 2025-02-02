@@ -3,11 +3,11 @@ import 'package:todolist/data/services/merchandise_api_service.dart';
 import 'package:todolist/domain/repositories/merchandise_repository.dart';
 
 class MerchandiseRepositoriesImpl extends MerchandiseRepository {
-  MerchandiseApiService service;
-  MerchandiseRepositoriesImpl(this.service);
+  MerchandiseApiService _service;
+  MerchandiseRepositoriesImpl(this._service);
 
   @override
   Future<List<MerchantModel>> fetchMerchandise() async {
-    return await service.fetchRecommends();
+    return await _service.fetchRecommends();
   }
 }

@@ -11,8 +11,8 @@ class MerchandiseItemScreen extends ConsumerStatefulWidget {
 }
 
 class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
-  var itemCount = 0;
-  final int col = 2;
+  var _itemCount = 0;
+  final int _col = 2;
 
   final List<MerchantModel> _items = [];
 
@@ -41,10 +41,10 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
       padding: EdgeInsetsDirectional.fromSTEB(10, 8, 10, 0),
       child: GridView.builder(
         shrinkWrap: true,
-        itemCount: itemCount,
+        itemCount: _itemCount,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: col, // 2 columns
+          crossAxisCount: _col, // 2 columns
           crossAxisSpacing: 10,
           childAspectRatio: 0.89,
         ),
@@ -73,7 +73,7 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
   void addItems(List<MerchantModel> merchandise) {
     setState(() {
       _items.addAll(merchandise);
-      itemCount = _items.length;
+      _itemCount = _items.length;
     });
   }
 

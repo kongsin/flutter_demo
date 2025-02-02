@@ -6,7 +6,7 @@ import 'package:todolist/ui/recommend_widget/recommend_menu.dart';
 import '../../enums/home_page_item_type.dart';
 
 class HomepageScreen extends StatelessWidget {
-  List<HomePageItemType> datas = [
+  List<HomePageItemType> _datas = [
     HomePageItemType.BANNER,
     HomePageItemType.CATEGORY,
     HomePageItemType.RECOMMEND,
@@ -30,10 +30,10 @@ class HomepageScreen extends StatelessWidget {
 
     return Scaffold(
       body: ListView.builder(
-        itemCount: datas.length,
+        itemCount: _datas.length,
         controller: _scrollController,
         itemBuilder: (context, index) {
-          switch (datas[index]) {
+          switch (_datas[index]) {
             case HomePageItemType.BANNER:
               return HomeBanner();
             case HomePageItemType.CATEGORY:

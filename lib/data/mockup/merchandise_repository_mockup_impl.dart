@@ -3,7 +3,7 @@ import 'package:todolist/data/models/merchandise_model.dart';
 import 'package:todolist/domain/repositories/merchandise_repository.dart';
 
 class MerchandiseRepositoryMockupImpl extends MerchandiseRepository {
-  var jsonString = '''
+  var _jsonString = '''
   [
   {
     "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
@@ -110,7 +110,7 @@ class MerchandiseRepositoryMockupImpl extends MerchandiseRepository {
 
   @override
   Future<List<MerchantModel>> fetchMerchandise() async {
-    List<dynamic> jsonData = await json.decode(jsonString);
+    List<dynamic> jsonData = await json.decode(_jsonString);
     List<MerchantModel> jsonObject =
         jsonData.map((data) => MerchantModel.fromJson(data)).toList();
     return Future.value(jsonObject);

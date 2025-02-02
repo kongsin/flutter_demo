@@ -7,7 +7,7 @@ class BannerRepositoryMockupImpl extends BannerRepository {
   BannerRepositoryMockupImpl();
 
   // Mock JSON string
-  String mockJson = '''
+  String _mockJson = '''
 [
   {
     "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
@@ -49,7 +49,7 @@ class BannerRepositoryMockupImpl extends BannerRepository {
 
   @override
   Future<List<BannerModel>> fetchBanners() async {
-    List<dynamic> mockData = await json.decode(mockJson);
+    List<dynamic> mockData = await json.decode(_mockJson);
     List<BannerModel> result =  mockData.map((data) => BannerModel.fromJson(data)).toList();
     return Future.value(result);
   }

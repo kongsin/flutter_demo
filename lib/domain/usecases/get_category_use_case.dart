@@ -4,12 +4,12 @@ import 'package:todolist/domain/usecases/base_use_case.dart';
 
 class GetCategoriesUseCase extends BaseUseCase<List<CategoryModel>> {
 
-  CategoriesRepository repository;
-  GetCategoriesUseCase(this.repository);
+  CategoriesRepository _repository;
+  GetCategoriesUseCase(this._repository);
 
   @override
   Future<List<CategoryModel>> execute() async {
-    List<CategoryModel> response = await repository.fetchCategories();
+    List<CategoryModel> response = await _repository.fetchCategories();
     return Future.value(response);
   }
 

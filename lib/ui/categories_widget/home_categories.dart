@@ -4,7 +4,7 @@ import 'package:todolist/data/models/category_model.dart';
 import 'package:todolist/di/viewmodel_provider.dart';
 
 class HomeCategories extends ConsumerWidget {
-  final int count = 6;
+  final int _count = 6;
   const HomeCategories({super.key});
 
   @override
@@ -31,7 +31,7 @@ class HomeCategories extends ConsumerWidget {
         itemCount: items.length,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: count, // 2 columns
+          crossAxisCount: _count, // 2 columns
           crossAxisSpacing: 10,
           childAspectRatio: 0.65,
         ),

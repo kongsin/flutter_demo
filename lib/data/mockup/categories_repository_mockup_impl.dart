@@ -9,7 +9,7 @@ class CategoriesRepositoriesMockupImpl extends CategoriesRepository {
 
   CategoriesRepositoriesMockupImpl();
 
-  var jsonString = '''
+  var _jsonString = '''
   [
   {
     "image": "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
@@ -76,7 +76,7 @@ class CategoriesRepositoriesMockupImpl extends CategoriesRepository {
 
   @override
   Future<List<CategoryModel>> fetchCategories() async {
-    List<dynamic> jsonData = await json.decode(jsonString);
+    List<dynamic> jsonData = await json.decode(_jsonString);
     List<CategoryModel> jsonObject = jsonData.map((data) => CategoryModel.fromJson(data)).toList();
     return Future.value(jsonObject);
   }

@@ -3,12 +3,12 @@ import 'package:todolist/domain/repositories/recommend_repository.dart';
 import 'package:todolist/domain/usecases/base_use_case.dart';
 
 class GetRecommendUseCase extends BaseUseCase<List<RecommendModel>> {
-  RecommendRepository repository;
-  GetRecommendUseCase(this.repository);
+  RecommendRepository _repository;
+  GetRecommendUseCase(this._repository);
 
   @override
   Future<List<RecommendModel>> execute() async {
-    List<RecommendModel> response = await repository.fetchRecommends();
+    List<RecommendModel> response = await _repository.fetchRecommends();
     return Future.value(response);
   }
 }

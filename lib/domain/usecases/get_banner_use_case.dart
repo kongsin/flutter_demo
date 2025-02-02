@@ -3,13 +3,13 @@ import 'package:todolist/domain/repositories/banner_repository.dart';
 import 'package:todolist/domain/usecases/base_use_case.dart';
 
 class GetBannerUseCase extends BaseUseCase<List<BannerModel>> {
-  BannerRepository bannerRepository;
+  BannerRepository _bannerRepository;
 
-  GetBannerUseCase(this.bannerRepository);
+  GetBannerUseCase(this._bannerRepository);
 
   @override
   Future<List<BannerModel>> execute() async {
-    return await bannerRepository.fetchBanners();
+    return await _bannerRepository.fetchBanners();
   }
 
 }

@@ -13,31 +13,31 @@ class HomeBanner extends ConsumerStatefulWidget {
 }
 
 class _HomeBannerState extends ConsumerState<HomeBanner> {
-  bool isLoadingVisible = false;
-  bool isErrorVisible = false;
-  String errorMsg = "";
+  bool _isLoadingVisible = false;
+  bool _isErrorVisible = false;
+  String _errorMsg = "";
 
   void showLoading() {
     setState(() {
-      isLoadingVisible = true;
+      _isLoadingVisible = true;
     });
   }
 
   void hideLoading() {
     setState(() {
-      isLoadingVisible = false;
+      _isLoadingVisible = false;
     });
   }
 
   void showError() {
     setState(() {
-      isErrorVisible = true;
+      _isErrorVisible = true;
     });
   }
 
   void hideError() {
     setState(() {
-      isErrorVisible = false;
+      _isErrorVisible = false;
     });
   }
 
@@ -107,16 +107,16 @@ class _HomeBannerState extends ConsumerState<HomeBanner> {
 
   Widget buildErrorContent(context) {
     return Visibility(
-      visible: isErrorVisible,
+      visible: _isErrorVisible,
       child: Center(
-        child: Text("Error: $errorMsg", style: TextStyle(color: Colors.red)),
+        child: Text("Error: $_errorMsg", style: TextStyle(color: Colors.red)),
       ),
     );
   }
 
   Widget buildLoadingContent(context) {
     return Visibility(
-      visible: isLoadingVisible,
+      visible: _isLoadingVisible,
       child: Center(
         child: SizedBox(
           width: 40,

@@ -3,12 +3,12 @@ import 'package:todolist/domain/repositories/merchandise_repository.dart';
 import 'package:todolist/domain/usecases/base_use_case.dart';
 
 class GetMerchandiseUseCase extends BaseUseCase<List<MerchantModel>> {
-  MerchandiseRepository repository;
-  GetMerchandiseUseCase(this.repository);
+  MerchandiseRepository _repository;
+  GetMerchandiseUseCase(this._repository);
 
   @override
   Future<List<MerchantModel>> execute() async {
-    List<MerchantModel> response = await repository.fetchMerchandise();
+    List<MerchantModel> response = await _repository.fetchMerchandise();
     return Future.value(response);
   }
 }

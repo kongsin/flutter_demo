@@ -5,12 +5,12 @@ import '../services/category_api_service.dart';
 
 class CategoriesRepositoriesImpl extends CategoriesRepository {
 
-  CategoryAPIService service;
-  CategoriesRepositoriesImpl(this.service);
+  CategoryAPIService _service;
+  CategoriesRepositoriesImpl(this._service);
 
   @override
   Future<List<CategoryModel>> fetchCategories() async {
-    return await service.fetchCategories();
+    return await _service.fetchCategories();
   }
 
 }
