@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,7 +17,11 @@ class HomeBanner extends ConsumerStatefulWidget {
 class _HomeBannerState extends ConsumerState<HomeBanner> {
   bool _isLoadingVisible = false;
   bool _isErrorVisible = false;
-  String _errorMsg = "";
+  final String _errorMsg = "";
+  late Timer _timer;
+  int _page = 0;
+  int _count = 0;
+  final PageController _pageController = PageController(initialPage: 0);
 
   void showLoading() {
     setState(() {
@@ -42,10 +48,36 @@ class _HomeBannerState extends ConsumerState<HomeBanner> {
   }
 
   @override
+  void initState() {
+    _timer = Timer.periodic(Duration(seconds: 5), (time) {
+      if(_count == 0) return;
+      if(_page == _count-1) {
+        _page = 0;
+      } else {
+        _page = _page+1;
+      }
+      _pageController.animateToPage(
+          _page,
+          duration: Duration(milliseconds: 800),
+          curve: Curves.easeInOut
+      );
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     var bannerViewModel = ref.watch(bannerViewModelProvider);
     return bannerViewModel.when(
       data: (banners) {
+        _count = banners.length;
         hideLoading();
         return buildPageContent(context, banners);
       },
@@ -67,6 +99,7 @@ class _HomeBannerState extends ConsumerState<HomeBanner> {
       child: Stack(
         children: [
           PageView.builder(
+            controller: _pageController,
             scrollDirection: Axis.horizontal,
             itemCount: banners.length,
             itemBuilder: (context, index) {
