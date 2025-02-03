@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/ui/merchandise_widget/merchandise_item.dart';
-import 'package:todolist/ui/merchandise_widget/merchat_cail.dart';
 
 class PageProfile extends ConsumerStatefulWidget {
   @override
@@ -48,69 +47,88 @@ class _PageProfileState extends ConsumerState<PageProfile> {
             expandedHeight: _actionbarHeight,
             pinned: true,
             leadingWidth: MediaQuery.of(context).size.width,
-            leading: Visibility(
-              visible: _showTitle,
-              child: Center(
-                child: Text(
-                  "Kongsin Pansansou",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            flexibleSpace: FlexibleSpaceBar(
-              background: Padding(
-                padding: EdgeInsets.fromLTRB(16, 70, 16, 16),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(style: BorderStyle.none),
-                          borderRadius: BorderRadius.circular(150),
-                        ),
-                        elevation: 0,
-                        clipBehavior: Clip.antiAlias,
-                        child: Image.network(
-                          "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
-                          width: 150,
-                          height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(16),
-                        child: Text(
-                          "Kongsin Pansansou",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            leading: buildPinToolbar(),
+            flexibleSpace: buildFlexibleSpaceBar(),
           ),
-          SliverList.list(children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 0, 0),
-              child: Text(
-                  "My Content",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  height: 0
-                ),
-              ),
-            ),
-            MerchandiseItemScreen(columnCount: 3)
-          ]),
+          buildMyContentList(),
         ],
       ),
+    );
+  }
+
+  Visibility buildPinToolbar() {
+    return Visibility(
+      visible: _showTitle,
+      child: Center(
+        child: Text(
+          "Kongsin Pansansou",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+
+  FlexibleSpaceBar buildFlexibleSpaceBar() {
+    return FlexibleSpaceBar(
+      background: SafeArea(
+        child: Container(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [buildMyImageProfile(), buildMyProfileContent()],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Card buildMyImageProfile() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        side: BorderSide(style: BorderStyle.none),
+        borderRadius: BorderRadius.circular(150),
+      ),
+      elevation: 0,
+      clipBehavior: Clip.antiAlias,
+      child: Image.network(
+        "https://plus.unsplash.com/premium_photo-1701590725747-ac131d4dcffd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
+        width: 150,
+        height: 150,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  Padding buildMyProfileContent() {
+    return Padding(
+      padding: EdgeInsets.all(16),
+      child: Text(
+        "Kongsin Pansansou",
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  SliverList buildMyContentList() {
+    return SliverList.list(
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(16, 16, 0, 0),
+          child: Text(
+            "My Content",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              height: 0,
+            ),
+          ),
+        ),
+        MerchandiseItemScreen(columnCount: 3),
+      ],
     );
   }
 }

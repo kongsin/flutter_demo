@@ -53,12 +53,13 @@ class MerchandiseItems extends ConsumerState<MerchandiseItemScreen> {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: columnCount, // 2 columns
           crossAxisSpacing: 10,
-          childAspectRatio: 0.85
+          childAspectRatio: 0.85,
         ),
         itemBuilder: (context, index) {
           return MerchantCellWidget(
             image: _items[index].image,
             name: _items[index].name,
+            scheme: _items[index].scheme,
           );
         },
       ),

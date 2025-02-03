@@ -38,6 +38,7 @@ class RecommendMenu extends ConsumerWidget {
               child: MerchantCellWidget(
                 image: items[index].image,
                 name: items[index].title,
+                scheme: items[index].scheme,
               ),
             );
           },
@@ -45,5 +46,4 @@ class RecommendMenu extends ConsumerWidget {
       ),
     );
   }
-
 }
